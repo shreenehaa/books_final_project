@@ -12,9 +12,10 @@ try {
   console.error("Unable to connect to the database:", error);
 }
 const app = express();
+app.use(cors());
 app.use(express.json());
 const PORT = process.env.PORT;
-app.use(cors());
+
 app.get("/", function (request, response) {
   response.send("🙋‍♂️, 🌏 🎊✨🤩");
 });
