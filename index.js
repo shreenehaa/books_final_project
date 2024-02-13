@@ -18,7 +18,7 @@ app.use(cors());
 app.get("/", function (request, response) {
   response.send("🙋‍♂️, 🌏 🎊✨🤩");
 });
-// app.use("/movies", moviesRouter);
+app.use("/movies", moviesRouter);
 app.use("/users", userRouter);
 
 app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));
