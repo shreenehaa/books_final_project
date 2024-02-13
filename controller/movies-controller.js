@@ -1,4 +1,4 @@
-import { Movie } from "../movies.js";
+import { Movie } from "../model/movies-model.js";
 import moviesService from "../service/movies-service.js";
 
 async function getAllMovies(request, response) {

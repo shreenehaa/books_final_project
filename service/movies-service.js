@@ -1,4 +1,4 @@
-import { Movie } from "../movies.js";
+import { Movie } from "../model/movies-model.js";
 
 async function getMovieService() {
   return await Movie.findAll();

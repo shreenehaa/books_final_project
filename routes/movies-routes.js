@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import { Movie } from "../movies.js";
+import { Movie } from "../model/movies-model.js";
 import moviesController from "../controller/movies-controller.js";
 router
   .route("/")
