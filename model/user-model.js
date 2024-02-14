@@ -12,6 +12,15 @@ const users_details = sequelize.define("users_details", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  avatar: {
+    type: DataTypes.STRING(1000),
+  },
+  roleId: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    defaultValue: 2,
+  },
 });
 // console.log(Movie === sequelize.models.Movie);
+
 export { users_details };
