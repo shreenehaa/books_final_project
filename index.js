@@ -8,6 +8,7 @@ import morgan from "morgan";
 import userRouter from "./routes/user-routes.js";
 import booksRouter from "./routes/books.routes.js";
 import path from "path";
+import { v2 as cloudinary } from "cloudinary";
 
 import { users_details } from "./model/user-model.js";
 // import {usersToken} from "./model/usersToken.js"
@@ -38,4 +39,8 @@ app.use("/users", userRouter);
 // const access1 = await access.create({ userid: 1, roleid: 0 });
 // const access1 = await access.create({ userid: 4, roleid: 0 });
 // const role1 = await role.create({ roleid: 2, rolename: "normal user" });
+cloudinary.config({
+  secure: true,
+});
+console.log(cloudinary.config());
 app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));

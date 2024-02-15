@@ -11,6 +11,7 @@ const auth = async (request, response, next) => {
       },
     });
     if (tokenCheck) {
+      request.token = token;
       next();
     } else {
       response.status(401).send({ msg: "Login expired" });

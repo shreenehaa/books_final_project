@@ -89,6 +89,7 @@ export default {
   insertUserService,
   getUserService,
   getUserByName,
+  updateAvatar,
   insertToken,
   updateAvatar,
   getIdByToken,
