@@ -50,12 +50,22 @@ async function login(request, response) {
 }
 
 async function getAllUser(request, response) {
-  response.send(await userService.getUserService());
+  const NOT_AUTHORIZED = { msg: "you are not authorized" };
+  const token = request.header("x-auth-token");
+  const id = await userService.getIdByToken(token);
+  console.log(id);
+  const role = await userService.getRoleIdByUserId(id.userId);
+  if (role == "admin" || role == "super user") {
+    response.send(await userService.getUserService());
+  } else {
+    response.send(NOT_AUTHORIZED);
+  }
 }
 
 async function logout(request, response) {
   const token_key = request.header("x-auth-token");
   const id = await userService.getIdByToken(token_key);
+
   console.log(id.userId);
   await userService.updateExpiry(id.userId);
   response.send("token expired");

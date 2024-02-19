@@ -50,6 +50,7 @@ async function updateBookById(request, response) {
     : response.status(404).send(msg);
 }
 async function searchBook(request, response) {
+  console.log("inside search cntroller");
   var ans = request.query.search;
   console.log(ans);
   var foundedBook = await booksService.searchBookService(ans);
