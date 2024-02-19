@@ -51,7 +51,8 @@ async function updateBookById(request, response) {
 }
 async function searchBook(request, response) {
   var ans = request.query.search;
-  var foundedBook = await booksService.searchBookService(ans.search);
+  console.log(ans);
+  var foundedBook = await booksService.searchBookService(ans);
   console.log(foundedBook);
   response.send(foundedBook);
 }

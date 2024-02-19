@@ -32,8 +32,8 @@ async function updateBookId(updateBook, id) {
   });
 }
 async function searchBookService(ans) {
-  console.log(ans.search);
-  return await Book.findOne({
+  console.log("service***********", ans);
+  return await Book.findAll({
     where: {
       [Op.or]: [
         { title: { [Op.like]: `%${ans}%` } },
