@@ -40,7 +40,7 @@ async function getIdByToken(key) {
   });
 }
 async function updateExpiry(id) {
-  return await userTokens.update({ expiry: "yes" }, { where: { id } });
+  return await userTokens.update({ expiry: "yes" }, { where: { userId: id } });
 }
 async function getRoleIdByUserId(id) {
   return await users_details.findOne({ where: { userid: id } });

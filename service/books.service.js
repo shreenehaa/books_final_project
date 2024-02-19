@@ -1,4 +1,5 @@
 import { Book } from "../model/books.js";
+import { Op } from "sequelize";
 async function getBooks(dbQuery) {
   return await Book.findAll(dbQuery);
 }
@@ -30,4 +31,25 @@ async function updateBookId(updateBook, id) {
     },
   });
 }
-export default { getBooks, createBook, getBookId, deleteBookId, updateBookId };
+async function searchBookService(ans) {
+  console.log(ans.search);
+  return await Book.findOne({
+    where: {
+      [Op.or]: [
+        { title: { [Op.like]: `%${ans}%` } },
+        { author: { [Op.like]: `%${ans}%` } },
+        { genre: { [Op.like]: `%${ans}%` } },
+        { language: { [Op.like]: `%${ans}%` } },
+      ],
+    },
+  });
+}
+
+export default {
+  getBooks,
+  createBook,
+  getBookId,
+  deleteBookId,
+  updateBookId,
+  searchBookService,
+};

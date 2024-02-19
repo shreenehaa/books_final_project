@@ -49,6 +49,12 @@ async function updateBookById(request, response) {
     ? response.send(updateBookByID)
     : response.status(404).send(msg);
 }
+async function searchBook(request, response) {
+  var ans = request.query.search;
+  var foundedBook = await booksService.searchBookService(ans.search);
+  console.log(foundedBook);
+  response.send(foundedBook);
+}
 
 export default {
   getAllBooks,
@@ -56,4 +62,5 @@ export default {
   getBookById,
   deleteBookById,
   updateBookById,
+  searchBook,
 };

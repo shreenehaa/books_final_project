@@ -56,6 +56,7 @@ async function getAllUser(request, response) {
 async function logout(request, response) {
   const token_key = request.header("x-auth-token");
   const id = await userService.getIdByToken(token_key);
+  console.log(id.userId);
   await userService.updateExpiry(id.userId);
   response.send("token expired");
 }

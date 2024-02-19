@@ -6,6 +6,7 @@ router
   .route("/")
   .get(booksController.getAllBooks)
   .post(auth, booksController.insertBook);
+router.route("/search").get(booksController.searchBook);
 router
   .route("/:id")
   .get(booksController.getBookById)
