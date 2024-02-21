@@ -40,6 +40,7 @@ async function searchBookService(ans) {
         { author: { [Op.like]: `%${ans}%` } },
         { genre: { [Op.like]: `%${ans}%` } },
         { language: { [Op.like]: `%${ans}%` } },
+        { rating: ans },
       ],
     },
   });

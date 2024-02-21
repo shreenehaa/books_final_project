@@ -43,7 +43,7 @@ async function updateExpiry(id) {
   return await userTokens.update({ expiry: "yes" }, { where: { userId: id } });
 }
 async function getRoleIdByUserId(id) {
-  return await users_details.findOne({ where: { userid: id } });
+  return await users_details.findOne({ where: { id: id } });
 }
 async function getRoleName(id) {
   return await role.findOne({ where: { roleid: id } });

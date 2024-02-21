@@ -53,9 +53,12 @@ async function getAllUser(request, response) {
   const NOT_AUTHORIZED = { msg: "you are not authorized" };
   const token = request.header("x-auth-token");
   const id = await userService.getIdByToken(token);
-  console.log(id);
+  console.log("iddddddddddddddddddddddd", id.userId);
   const role = await userService.getRoleIdByUserId(id.userId);
-  if (role == "admin" || role == "super user") {
+  console.log(role.roleId);
+  const roleN = await userService.getRoleName(role.roleId);
+  console.log("roleeeeeeee nameeeeeeeeeee", roleN.rolename);
+  if (roleN.rolename == "admin" || roleN.rolename == "super user") {
     response.send(await userService.getUserService());
   } else {
     response.send(NOT_AUTHORIZED);
